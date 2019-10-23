@@ -10,8 +10,8 @@ export default class FilterOptions extends Component {
                         <label htmlFor="print_type">Print Type:</label>
                         <select id="print_type" name="print_type">
                             <option value="all">All</option>
-                            <option value="free-ebooks">Free ebooks</option>
-                            <option value="paid-ebooks">Paid ebooks</option>
+                            <option value="books">Books</option>
+                            <option value="magazines">Magazines</option>
                         </select>
                     </form>
                 </div>
@@ -20,6 +20,9 @@ export default class FilterOptions extends Component {
                         <label htmlFor="book_type">Book Type:</label>
                         <select id="no_filter" name="no_filter">
                             <option value="no_filter">No Filter</option>
+                            <option value="ebooks">ebooks</option>
+                            <option value="free_ebooks">Free ebooks</option>
+                            <option value="paid_ebooks">Paid ebooks</option>
                         </select>
                     </form>
                 </div>
