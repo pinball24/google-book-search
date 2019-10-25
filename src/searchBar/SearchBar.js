@@ -7,8 +7,13 @@ export default class SearchBar extends Component {
         return (
             <div className="SearchBar">
                 <div className="SearchBar__controls">
-                    <SearchBox />
-                    <FilterOptions />
+                    <SearchBox 
+                        searchTerm={this.props.searchTerm}
+                        handleSearch={this.props.handleSearch}
+                        getBooks={this.props.getBooks}/>
+                    <FilterOptions 
+                        filters={this.props.filters}
+                    />
                 </div>
             </div>
         );
