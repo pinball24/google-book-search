@@ -14,8 +14,9 @@ export default class SearchBox extends Component {
 
                     <div className="search_button">
                         <button 
-                            type="submit"
-                            onSubmit={e => this.props.handleSearch(e.target.value)}>
+                            type="button"
+                            value={this.props.searchTerm}
+                            onClick={e => this.props.getBooks}>
                                 Search
                         </button> 
                     </div>
