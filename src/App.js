@@ -9,7 +9,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: '',
+      searchTerm: 'henry',
       books: [],
       filters: {
         printType: 'all',
@@ -25,10 +25,12 @@ export default class App extends Component {
   }
 
   getBooks() {
-    const key = 'AIzaSyA3-NFqGyuqFXMmStPr_qSpsjx7gcOGXgc'
+    const key = 'AIzaSyD0-VzbtzihqtPLCc9xZF_keDNQ-DMy2ls'
+    console.log(key);
     const baseUrl = 'https://www.googleapis.com/books/v1/volumes'
+    console.log(baseUrl);
     let url = `${baseUrl}?key=${key}&q=${this.state.searchTerm}`
-
+    console.log(url);
 
     fetch(url)
       .then(res => {
@@ -39,6 +41,7 @@ export default class App extends Component {
       })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         this.setState({
           books: data,
           error: null
@@ -59,7 +62,7 @@ export default class App extends Component {
           searchTerm={this.state.searchTerm}
           filters={this.state.filters}
           handleSearch={term => this.updateSearchTerm(term)}
-          getBooks={this.getBooks()}/>
+          getBooks={this.getBooks}/>
         <FilterableList 
           searchTerm={this.state.searchTerm}
           filters={this.state.filters}/>

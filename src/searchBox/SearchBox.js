@@ -16,7 +16,7 @@ export default class SearchBox extends Component {
                         <button 
                             type="button"
                             value={this.props.searchTerm}
-                            onClick={e => this.props.getBooks}>
+                            onClick={this.props.getBooks}>
                                 Search
                         </button> 
                     </div>
