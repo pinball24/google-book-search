@@ -13,7 +13,7 @@ export default class SearchBar extends Component {
                         getBooks={this.props.getBooks}/>
                     <FilterOptions 
                         filters={this.props.filters}
-                    />
+                        handleFilterChange={this.props.handleFilterChange}/>
                 </div>
             </div>
         );

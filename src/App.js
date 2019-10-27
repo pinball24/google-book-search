@@ -44,7 +44,6 @@ export default class App extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         this.setState({
           books: data,
           error: null
@@ -65,6 +64,7 @@ export default class App extends Component {
           searchTerm={this.state.searchTerm}
           filters={this.state.filters}
           handleSearch={term => this.updateSearchTerm(term)}
+          handleFilterChange={print => this.updateFilterOption(print)}
           getBooks={this.getBooks}/>
         <FilterableList 
           searchTerm={this.state.searchTerm}
