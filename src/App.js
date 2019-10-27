@@ -9,7 +9,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: 'henry',
+      searchTerm: '',
       books: [],
       filters: {
         printType: 'all',
@@ -24,13 +24,16 @@ export default class App extends Component {
     })
   }
 
-  getBooks() {
-    const key = 'AIzaSyD0-VzbtzihqtPLCc9xZF_keDNQ-DMy2ls'
-    console.log(key);
+  updateFilterOption(print, type) {
+    this.setState({
+      filters: {...this.state.filters, printType: print, bookType: type}
+    })
+  }
+
+  getBooks = () => {
+    const key = 'AIzaSyDXWqspP09ukXy-DwC1nROuYPVIXKC9CiQ'
     const baseUrl = 'https://www.googleapis.com/books/v1/volumes'
-    console.log(baseUrl);
-    let url = `${baseUrl}?key=${key}&q=${this.state.searchTerm}`
-    console.log(url);
+    let url = `${baseUrl}?q=${this.state.searchTerm}&key=${key}`
 
     fetch(url)
       .then(res => {
@@ -41,7 +44,7 @@ export default class App extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        console.log(data)
         this.setState({
           books: data,
           error: null
@@ -65,7 +68,8 @@ export default class App extends Component {
           getBooks={this.getBooks}/>
         <FilterableList 
           searchTerm={this.state.searchTerm}
-          filters={this.state.filters}/>
+          filters={this.state.filters}
+          books={this.state.books}/>
       </div>
     )
   }
