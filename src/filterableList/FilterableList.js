@@ -3,10 +3,14 @@ import ListItem from '../listItem/ListItem';
 
 export default class FilterableList extends Component {
     render() {
-        console.log(this.props.books);
+        let list;
         if (this.props.books) {
-        let list = this.props.books.items.map((book, key) => <ListItem {...book} key={key}/>);
-        console.log(list)
+            list = 
+                this.props.books &&
+                this.props.books.items &&
+                this.props.books.items.map((book, key) => (
+                    <ListItem {...book} key={key} />
+                ));
         } else {
             console.log('There are no books to display')
         };
